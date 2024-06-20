@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BERKAY Animasyon</title>
+    <title>beerkay</title>
     <style>
         body {
             background-color: #000;
@@ -233,165 +233,21 @@
     <div class="container">
         <div class="name">BERKAY</div>
     </div>
-</body>
-</html>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TIKLA Butonu</title>
 <link rel="stylesheet" href="styles.css">
-<style>
-    /* Eski stiller */
-    body {
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(to bottom right, #333, #666);
-    }
-    
-    .container {
-        text-align: center;
-        position: relative;
-    }
-    
-    .name {
-        color: #fff;
-        font-size: 4em;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        position: relative;
-        z-index: 1;
-    }
-    
-    /* Ekranı dolduracak efektler */
-    .fill-effect {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background-color: rgba(0, 0, 0, 0.8);
-        animation: fillFade 10s infinite alternate;
-    }
-    
-    @keyframes fillFade {
-        0% { background-color: rgba(0, 0, 0, 0.8); }
-        50% { background-color: rgba(0, 0, 0, 0.6); }
-        100% { background-color: rgba(0, 0, 0, 0.8); }
-    }
-    
-    /* Yeni efektler */
-    .body-effect {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -2;
-        animation: pulseBackground 10s infinite alternate, rotateBackground 20s linear infinite;
-    }
-    
-    @keyframes pulseBackground {
-        0% { background-color: rgba(0, 0, 0, 0.8); }
-        50% { background-color: rgba(0, 0, 0, 0.6); }
-        100% { background-color: rgba(0, 0, 0, 0.8); }
-    }
-    
-    @keyframes rotateBackground {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 20%, rgba(0, 0, 0, 0.8) 80%);
-        pointer-events: none;
-        z-index: -3;
-        animation: radialFade 10s infinite alternate;
-    }
-    
-    @keyframes radialFade {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-    }
-    
-    .overlay::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1));
-        opacity: 0.8;
-        pointer-events: none;
-        animation: rotateGradient 15s linear infinite;
-    }
-    
-    @keyframes rotateGradient {
-        0% { transform: translate(-50%, -50%) rotate(0deg); }
-        100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-    
-    .container::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0.02);
-        pointer-events: none;
-        z-index: -4;
-        animation: flicker 3s infinite alternate;
-    }
-    
-    @keyframes flicker {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.3; }
-    }
-    
-    .name::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 1px solid rgba(255, 0, 255, 0.8);
-        box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
-        z-index: -1;
-        animation: shadowMove 5s infinite alternate;
-    }
-    
-    @keyframes shadowMove {
-        0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 255, 0.8); }
-        50% { box-shadow: 0 0 40px rgba(255, 0, 255, 0.8); }
-    }
-    
-    /* Yeni animasyonlar ve efektler sonu */
-</style>
 </head>
 <body>
-    <div class="body-effect"></div>
-    <div class="fill-effect"></div>
-    <div class="overlay"></div>
     <div class="container">
         <div class="name">BERKAY</div>
         <a href="#" class="button">TIKLA</a>
     </div>
+</body>
+</html>
+    
 </body>
 </html>
