@@ -3,249 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hosgeldin</title>
+    <title>TIKLA Butonu</title>
     <style>
         body {
-            background-color: #000;
+            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            overflow: hidden;
             font-family: 'Arial', sans-serif;
         }
         
-        .container {
+        .button-container {
             text-align: center;
-            position: relative;
-            z-index: 1;
-            width: 100%;
         }
         
-        .name {
-            font-size: 3em;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
             color: #fff;
-            text-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
-            margin-bottom: 20px;
-            z-index: 1;
-            animation: colorChange 5s infinite alternate, move 3s infinite alternate, glow 2s infinite alternate, shake 1s infinite alternate, blink 0.5s infinite steps(5);
-            transition: transform 0.3s ease-out;
-        }
-        
-        .fill-effect {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: -1;
-            animation: fillScreen 5s ease-in-out forwards;
-        }
-        
-        @keyframes colorChange {
-            0%, 100% { color: #0ff; }
-            50% { color: #f0f; }
-        }
-        
-        @keyframes move {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-        }
-        
-        @keyframes glow {
-            0% { text-shadow: 0 0 20px rgba(255, 0, 255, 0.8); }
-            50% { text-shadow: 0 0 40px rgba(255, 0, 255, 0.8); }
-            100% { text-shadow: 0 0 20px rgba(255, 0, 255, 0.8); }
-        }
-        
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
-            20%, 40%, 60%, 80% { transform: translateX(10px); }
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        @keyframes scale {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        @keyframes slide {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(0); }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        
-        /* Ekranı dolduracak efektler */
-        @keyframes expand {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.5); }
-        }
-        
-        @keyframes fillScreen {
-            0% {
-                width: 0;
-                height: 0;
-                opacity: 0;
-            }
-            100% {
-                width: 100vw;
-                height: 100vh;
-                opacity: 1;
-            }
-        }
-        
-        .name:hover {
-            transform: scale(1.1);
-        }
-        /* Ekranı dolduracak efektler sonu */
-        
-        /* Yeni efektler */
-        @keyframes pulseBackground {
-            0% { background-color: rgba(0, 0, 0, 0.8); }
-            50% { background-color: rgba(0, 0, 0, 0.6); }
-            100% { background-color: rgba(0, 0, 0, 0.8); }
-        }
-        
-        @keyframes rotateBackground {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .body-effect {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            animation: pulseBackground 10s infinite alternate, rotateBackground 20s linear infinite;
-        }
-        
-        /* Güzel detaylar */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 20%, rgba(0, 0, 0, 0.8) 80%);
-            pointer-events: none;
-            z-index: -3;
-            animation: radialFade 10s infinite alternate;
-        }
-        
-        @keyframes radialFade {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        
-        .overlay::before {
-            content: 'TIKLA';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.5em;
-            color: #fff;
+            font-size: 1.2em;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            text-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
-            z-index: 1;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.1);
+            transition: background-color 0.3s ease;
         }
         
-        .overlay::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1));
-            opacity: 0.8;
-            pointer-events: none;
-            animation: rotateGradient 15s linear infinite;
+        .button:hover {
+            background-color: #0056b3;
         }
-        
-        @keyframes rotateGradient {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-        
-        /* Güzel detaylar sonu */
-        
-        /* Yeni animasyonlar ve efektler */
-        @keyframes flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-        
-        .container::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.02);
-            pointer-events: none;
-            z-index: -4;
-            animation: flicker 3s infinite alternate;
-        }
-        
-        @keyframes shadowMove {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 255, 0.8); }
-            50% { box-shadow: 0 0 40px rgba(255, 0, 255, 0.8); }
-        }
-        
-        .name::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 1px solid rgba(255, 0, 255, 0.8);
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
-            z-index: -1;
-            animation: shadowMove 5s infinite alternate;
-        }
-        
-        /* Yeni animasyonlar ve efektler sonu */
     </style>
 </head>
 <body>
-    <div class="body-effect"></div>
-    <div class="fill-effect"></div>
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="name">BERKAY</div>
+    <div class="button-container">
+        <button class="button">TIKLA</button>
     </div>
 </body>
 </html>
