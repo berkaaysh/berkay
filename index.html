@@ -40,8 +40,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 0;
-            height: 0;
+            width: 100vw;
+            height: 100vh;
             background-color: rgba(0, 0, 0, 0.8);
             z-index: -1;
             animation: fillScreen 5s ease-in-out forwards;
@@ -74,37 +74,6 @@
             50% { opacity: 0; }
         }
         
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        @keyframes scale {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        @keyframes slide {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(0); }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        
-        /* Ekranı dolduracak efektler */
-        @keyframes expand {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.5); }
-        }
-        
         @keyframes fillScreen {
             0% {
                 width: 0;
@@ -121,31 +90,69 @@
         .name:hover {
             transform: scale(1.1);
         }
-        /* Ekranı dolduracak efektler sonu */
         
-        /* Yeni efektler */
-        @keyframes pulseBackground {
-            0% { background-color: rgba(0, 0, 0, 0.8); }
-            50% { background-color: rgba(0, 0, 0, 0.6); }
-            100% { background-color: rgba(0, 0, 0, 0.8); }
+        /* Yeni animasyonlar ve efektler */
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
         }
         
-        @keyframes rotateBackground {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .body-effect {
-            position: fixed;
+        .container::after {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background-color: rgba(255, 255, 255, 0.02);
+            pointer-events: none;
             z-index: -2;
-            animation: pulseBackground 10s infinite alternate, rotateBackground 20s linear infinite;
+            animation: flicker 3s infinite alternate;
         }
         
-        /* Güzel detaylar */
+        @keyframes shadowMove {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 255, 0.8); }
+            50% { box-shadow: 0 0 40px rgba(255, 0, 255, 0.8); }
+        }
+        
+        .name::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 0, 255, 0.8);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+            z-index: -1;
+            animation: shadowMove 5s infinite alternate;
+        }
+        
+        /* Yeni animasyonlar ve efektler sonu */
+
+        /* Button styles */
+        .button {
+            font-size: 1.5em;
+            color: #fff;
+            background-color: #f0f;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+            transition: transform 0.3s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Additional effects */
         .overlay {
             position: fixed;
             top: 0;
@@ -182,73 +189,46 @@
             100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
         
-        /* Güzel detaylar sonu */
-        
-        /* Yeni animasyonlar ve efektler */
-        @keyframes flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-        
-        .container::after {
-            content: '';
-            position: absolute;
+        .body-effect {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.02);
-            pointer-events: none;
-            z-index: -4;
-            animation: flicker 3s infinite alternate;
+            z-index: -2;
+            animation: pulseBackground 10s infinite alternate, rotateBackground 20s linear infinite;
         }
         
-        @keyframes shadowMove {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 255, 0.8); }
-            50% { box-shadow: 0 0 40px rgba(255, 0, 255, 0.8); }
+        @keyframes pulseBackground {
+            0% { background-color: rgba(0, 0, 0, 0.8); }
+            50% { background-color: rgba(0, 0, 0, 0.6); }
+            100% { background-color: rgba(0, 0, 0, 0.8); }
         }
         
-        .name::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 1px solid rgba(255, 0, 255, 0.8);
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
-            z-index: -1;
-            animation: shadowMove 5s infinite alternate;
+        @keyframes rotateBackground {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
-        /* Yeni animasyonlar ve efektler sonu */
-
-        .button {
-            font-size: 1.5em;
-            color: #fff;
-            background-color: #f0f;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            text-transform: uppercase;
-            margin-top: 20px;
-            animation: pulse 2s infinite;
-            transition: transform 0.3s ease-out;
+        /* Optional: Add more animations or effects as desired */
+        @keyframes scaleUp {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
-
-        .button:hover {
-            transform: scale(1.1);
+        
+        .name:active {
+            animation: scaleUp 0.3s ease-out;
         }
     </style>
 </head>
 <body>
-    <div class="body-effect"></div>
     <div class="fill-effect"></div>
     <div class="overlay"></div>
-    <div class=""container">
+    <div class="body-effect"></div>
+    <div class="container">
         <div class="name">BERKAY</div>
+        <button class="button">Click Me</button>
     </div>
 </body>
 </html>
